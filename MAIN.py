@@ -16,10 +16,10 @@ from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 # Page Config
 # ---------------------------------
 
-st.set_page_config(page_title="FORGE HUB", layout="wide")
+st.set_page_config(page_title="Forge Studio", layout="wide")
 
 # ---------------------------------
-# UI Styling (Adobe-style)
+# UI Styling (Adobe-like)
 # ---------------------------------
 
 st.markdown("""
@@ -47,10 +47,10 @@ h1, h2, h3 {
 """, unsafe_allow_html=True)
 
 # ---------------------------------
-# Sidebar Navigation
+# Sidebar
 # ---------------------------------
 
-st.sidebar.title(" FORGE STUDIOS")
+st.sidebar.title("🔥 Forge Studio")
 
 tool = st.sidebar.radio(
     "Choose Tool",
@@ -63,19 +63,19 @@ tool = st.sidebar.radio(
 
 if tool == "Home":
 
-    st.title("Welcome to FORGE STUDIOS")
+    st.title("🚀 Welcome to Forge Studio")
 
     st.markdown("""
     ### Your Creative AI Toolkit
-
-    Choose a tool from the sidebar:
 
     🖼️ Image Enhancer → Upscale & improve images  
     🎬 Video Enhancer → Enhance video quality  
 
     ⚡ Built for creators  
-    🔥 Powered by FORGE
+    🔥 Powered by Forge Studio  
     """)
+
+    st.warning("⚠️ Use medium images and short videos (5–10 sec) for best performance")
 
 # ---------------------------------
 # IMAGE ENHANCER
@@ -83,7 +83,7 @@ if tool == "Home":
 
 elif tool == "Image Enhancer":
 
-    st.title("FORGEPIXEL")
+    st.title("🖼️ Forge Image Enhancer")
 
     uploaded_image = st.file_uploader("Upload Image", type=["png","jpg","jpeg"])
 
@@ -91,7 +91,7 @@ elif tool == "Image Enhancer":
 
         image = Image.open(uploaded_image).convert("RGB")
 
-        st.image(image, caption="Original Image", use_container_width=True)
+        st.image(image, caption="Original Image", width='stretch')
 
         quality = st.selectbox("Enhancement Level", ["2X", "4X"])
 
@@ -109,7 +109,7 @@ elif tool == "Image Enhancer":
 
             st.success("🔥 Enhancement Complete!")
 
-            st.image(enhanced, caption="Enhanced Image", use_container_width=True)
+            st.image(enhanced, caption="Enhanced Image", width='stretch')
 
             # Download
             result = Image.fromarray(enhanced)
@@ -119,7 +119,7 @@ elif tool == "Image Enhancer":
             st.download_button(
                 label="⬇ Download Image",
                 data=buf.getvalue(),
-                file_name="forgehance_image.png",
+                file_name="forge_image.png",
                 mime="image/png"
             )
 
@@ -129,7 +129,7 @@ elif tool == "Image Enhancer":
 
 elif tool == "Video Enhancer":
 
-    st.title("FORGEHANCE")
+    st.title("🎬 Forge Video Enhancer")
 
     uploaded_file = st.file_uploader("Upload Video", type=["mp4","mov","avi"])
 
@@ -145,6 +145,7 @@ elif tool == "Video Enhancer":
 
         if st.button("Enhance Video"):
 
+            st.warning("⚠️ Use short clips (5–10 sec) for best performance")
             st.info("Processing...")
 
             clip = VideoFileClip(temp_input.name)
@@ -185,6 +186,6 @@ elif tool == "Video Enhancer":
                 st.download_button(
                     label="⬇ Download Video",
                     data=f,
-                    file_name="forgehance_video.mp4",
+                    file_name="forge_video.mp4",
                     mime="video/mp4"
                 )

@@ -50,11 +50,11 @@ h1, h2, h3 {
 # Sidebar
 # ---------------------------------
 
-st.sidebar.title("🔥 Forge Studio")
+st.sidebar.title("Forge Studio")
 
 tool = st.sidebar.radio(
     "Choose Tool",
-    ["Home", "Image Enhancer", "Video Enhancer"]
+    ["Home", "FORGEPIXEL-Image Enhancer", "FORGEHANCE-Video Enhancer"]
 )
 
 # ---------------------------------
@@ -63,16 +63,16 @@ tool = st.sidebar.radio(
 
 if tool == "Home":
 
-    st.title("🚀 Welcome to Forge Studio")
+    st.title("Welcome to Forge Studio")
 
     st.markdown("""
     ### Your Creative AI Toolkit
 
-    🖼️ Image Enhancer → Upscale & improve images  
-    🎬 Video Enhancer → Enhance video quality  
+    🖼️ FORGEPIXEL-Image Enhancer → Upscale & improve images  
+    🎬 FORGEHANCE-Video Enhancer → Enhance video quality  
 
     ⚡ Built for creators  
-    🔥 Powered by Forge Studio  
+    🔥 Powered by Forge Studios  
     """)
 
     st.warning("⚠️ Use medium images and short videos (5–10 sec) for best performance")
@@ -81,9 +81,9 @@ if tool == "Home":
 # IMAGE ENHANCER
 # ---------------------------------
 
-elif tool == "Image Enhancer":
+elif tool == "FORGEPIXEL":
 
-    st.title("🖼️ Forge Image Enhancer")
+    st.title("🖼️ FORGEPIXEL")
 
     uploaded_image = st.file_uploader("Upload Image", type=["png","jpg","jpeg"])
 
@@ -127,9 +127,9 @@ elif tool == "Image Enhancer":
 # VIDEO ENHANCER
 # ---------------------------------
 
-elif tool == "Video Enhancer":
+elif tool == "FORGEHANCE":
 
-    st.title("🎬 Forge Video Enhancer")
+    st.title("🎬 ForgeHANCE ")
 
     uploaded_file = st.file_uploader("Upload Video", type=["mp4","mov","avi"])
 
